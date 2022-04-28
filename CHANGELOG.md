@@ -6,6 +6,10 @@ use [Keep a Changelog] (http://keepachangelog.com/).
 
 ## [1.0.0-beta3] - In progress
 
+### Added
+
+- New method `CollectionInterface::isEmpty(): bool`
+
 ### Changed
 
 - Return type of `Collection::getIterator()` method

@@ -63,6 +63,15 @@ $collection = new Collection(['my', 'initial', 'array']);
 $collection->getArrayCopy(); // Returns `['my', 'initial', 'array']`
 ```
 
+#### `CollectionInterface::isEmpty(): bool`
+
+Know if collection is empty.
+
+```php
+Collection::new(['foo', 'bar'])->isEmpty(); // Returns FALSE
+Collection::new()->isEmpty(); // Returns TRUE
+```
+
 #### `CollectionInterface::collect(): self`
 
 Collect al data from current collection into another one.
