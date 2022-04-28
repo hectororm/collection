@@ -192,7 +192,7 @@ $collection->contains(2, true); // Returns `false`
 
 Similar to `in_array()` function.
 
-#### `CollectionInterface::chunk(int $length, ?callable $callback = null): self`
+#### `CollectionInterface::chunk(int $length): self`
 
 Chunk collection items into collection of fixed length.
 
@@ -201,8 +201,6 @@ $collection = Collection::new(['foo', 'bar', 'baz']);
 $collection = $collection->chunck(2); // Returns 2 collections
 $collection->getArrayCopy(); // Returns `[['foo', 'bar'], ['baz']]`
 ```
-
-Given `$callback` argument is similar to chain calls: `$collection->chunk(2)->map($callback)`.
 
 Similar to `array_chunk()` function.
 

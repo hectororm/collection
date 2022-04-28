@@ -10,6 +10,10 @@ use [Keep a Changelog] (http://keepachangelog.com/).
 
 - Return type of `Collection::getIterator()` method
 
+### Removed
+
+- `callback` argument of method `CollectionInterface::chunk()`
+
 ## [1.0.0-beta2] - 2022-04-28
 
 ### Added
