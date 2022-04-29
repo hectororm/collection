@@ -94,6 +94,35 @@ $collection->getArrayCopy(); // Returns `['bar', 'foo']`
 
 Similar to PHP array sort functions.
 
+#### `CollectionInterface::multiSort(callable ...$callback): self`
+
+Multi sort items of collection.
+
+```php
+$collection = Collection::new([
+    'l' => ['name' => 'Lemon', 'nb' => 1],
+    'o' => ['name' => 'Orange', 'nb' => 1],
+    'b1' => ['name' => 'Banana', 'nb' => 5],
+    'b2' => ['name' => 'Banana', 'nb' => 1],
+    'a1' => ['name' => 'Apple', 'nb' => 10],
+    'a2' => ['name' => 'Apple', 'nb' => 1],
+]);
+$collection = $collection->sort(
+    fn($item1, $item2) => $item1['name'] <=> $item2['name'],
+    fn($item1, $item2) => $item1['nb'] <=> $item2['nb'],
+);
+$collection->getArrayCopy();
+// Returns:
+// [
+//     'a2' => ['name' => 'Apple', 'nb' => 1],
+//     'a1' => ['name' => 'Apple', 'nb' => 10],
+//     'b2' => ['name' => 'Banana', 'nb' => 1],
+//     'b1' => ['name' => 'Banana', 'nb' => 5],
+//     'l' => ['name' => 'Lemon', 'nb' => 1],
+//     'o' => ['name' => 'Orange', 'nb' => 1],
+// ]`
+```
+
 #### `CollectionInterface::filter(?callable $callback = null): self`
 
 Filter items with callback.
