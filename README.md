@@ -304,6 +304,33 @@ $collection = Collection::new([1, 2, 3, 4]);
 $collection->avg(); // Returns `2.5`
 ```
 
+#### `CollectionInterface::median(): float|int`
+
+Get median of values.
+
+```php
+$collection = Collection::new([1, 3, 5, 7]);
+$collection->median(); // Returns `4`
+```
+
+#### `CollectionInterface::variance(): float|int`
+
+Get population variance of values.
+
+```php
+$collection = Collection::new([1, 1, 2, 2, 3, 5]);
+$collection->variance(); // Returns `1.888888888889`
+```
+
+#### `CollectionInterface::deviation(): float|int`
+
+Get population deviation of values.
+
+```php
+$collection = Collection::new([1, 3, 5, 7]);
+$collection->deviation(); // Returns `2.2360679775`
+```
+
 #### `CollectionInterface::reduce(callable $callback, mixed $initial = null): mixed`
 
 Reduce collection with callback and optional initial value.

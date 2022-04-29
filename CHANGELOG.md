@@ -9,6 +9,9 @@ use [Keep a Changelog] (http://keepachangelog.com/).
 ### Added
 
 - New method `CollectionInterface::isEmpty(): bool`
+- New method `CollectionInterface::median(): float|int` to calculate median of collection values
+- New method `CollectionInterface::variance(): float` to calculate population variance of collection values
+- New method `CollectionInterface::deviation(): float` to calculate population deviation of collection values
 
 ### Changed
 
