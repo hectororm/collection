@@ -74,7 +74,8 @@ Collection::new()->isEmpty(); // Returns TRUE
 
 #### `CollectionInterface::collect(): self`
 
-Collect al data from current collection into another one.
+Collect all data from current collection into another one.
+
 For lazy connection, collect all remaining items into classic collection.
 
 ```php
@@ -149,9 +150,15 @@ Similar to `is_a()` function.
 
 #### `CollectionInterface::map(callable $callback): self`
 
-Apply callback on items.
+Apply callback on items and return result of callback.
 
 Similar to `array_map()` function.
+
+#### `CollectionInterface::each(callable $callback): self`
+
+Apply callback on items and return items.
+
+Similar to `array_walk()` function.
 
 #### `CollectionInterface::search(callable $callback): mixed`
 
@@ -266,7 +273,7 @@ Similar to `array_values()` function.
 
 #### `CollectionInterface::unique(): self`
 
-Get unique items of collection items.
+Get uniques items of collection items.
 
 ```php
 $collection = Collection::new(['k1' => 'foo', 1 => 'foo', 'bar', 'k2' => 'baz']);
