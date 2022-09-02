@@ -9,6 +9,15 @@ use [Keep a Changelog] (http://keepachangelog.com/).
 ### Added
 
 - New method `CollectionInterface::each(): self`
+- New method `CollectionInterface::all(): array`
+
+### Changed
+
+- `CollectionInterface` implements now `\Countable`, so signature of method `LazyCollection::count()` changed
+
+### Fixed
+
+- Fix `CollectionInterface::collect(): self` with sub collections
 
 ## [1.0.0-beta4] - 2022-09-01
 

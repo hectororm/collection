@@ -51,6 +51,20 @@ Create new instance of current collection.
 $collection = Collection::new(['foo', 'bar']);
 ```
 
+#### `Collection::count(): int`
+
+Count number of items in collection.
+
+For lazy collection, all iterator is traversed.
+
+```php
+$collection = Collection::new(['foo', 'bar', 'baz']);
+$collection->count(); // Returns `3`
+count($collection); // Returns `3`
+```
+
+Similar to `count()` function.
+
 #### `CollectionInterface::getArrayCopy(): array`
 
 Use method to get the array representation of your collection.
@@ -59,8 +73,20 @@ Use method to get the array representation of your collection.
 $collection = new Collection();
 $collection->getArrayCopy(); // Returns `[]`
 
-$collection = new Collection(['my', 'initial', 'array']);
-$collection->getArrayCopy(); // Returns `['my', 'initial', 'array']`
+$collection = new Collection(['my', 'initial', new Collection(['array'])]);
+$collection->getArrayCopy(); // Returns `['my', 'initial', ['array']]`
+```
+
+#### `CollectionInterface::all(): array`
+
+Use method to get all values of your collection as array.
+
+```php
+$collection = new Collection();
+$collection->all(); // Returns `[]`
+
+$collection = new Collection(['my', 'initial', new Collection(['array'])]);
+$collection->all(); // Returns `['my', 'initial', new Collection(['array'])]`
 ```
 
 #### `CollectionInterface::isEmpty(): bool`
@@ -76,7 +102,7 @@ Collection::new()->isEmpty(); // Returns TRUE
 
 Collect all data from current collection into another one.
 
-For lazy connection, collect all remaining items into classic collection.
+For lazy collection, collect all remaining items into classic collection.
 
 ```php
 $collection = Collection::new(['foo', 'bar']);
@@ -405,18 +431,6 @@ $collection->prepend('baz', 'qux')->getArrayCopy(); // Returns `['baz', 'qux', '
 
 Similar to `array_unshift()` function.
 
-#### `Collection::count(): int`
-
-Count number of items in collection.
-
-```php
-$collection = Collection::new(['foo', 'bar', 'baz']);
-$collection->count(); // Returns `3`
-count($collection); // Returns `3`
-```
-
-Similar to `count()` function.
-
 #### `Collection::lazy(): CollectionInterface`
 
 New lazy collection from current collection.
@@ -425,14 +439,3 @@ New lazy collection from current collection.
 
 Lazy collection use generators to improve performances.
 Usage of a collection is unique, but can be chained.
-
-#### `Collection::count(int &$length = 0): CollectionInterface`
-
-Count number of items and return new collection.
-
-```php
-$collection = LazyCollection::new(['foo', 'bar', 'baz']);
-$length = 0;
-$collection = $collection->count($length);
-print $length; // Print `3`
-```
