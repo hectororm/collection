@@ -2,7 +2,7 @@
 
 [![Latest Version](https://img.shields.io/packagist/v/hectororm/collection.svg?style=flat-square)](https://github.com/hectororm/collection/releases)
 [![Software license](https://img.shields.io/github/license/hectororm/collection.svg?style=flat-square)](https://github.com/hectororm/collection/blob/main/LICENSE)
-[![Build Status](https://img.shields.io/github/workflow/status/hectororm/collection/Tests/main.svg?style=flat-square)](https://github.com/hectororm/collection/actions/workflows/tests.yml?query=branch%3Amain)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/hectororm/collection/tests.yml?branch=main&style=flat-square)](https://github.com/hectororm/collection/actions/workflows/tests.yml?query=branch%3Amain)
 [![Quality Grade](https://img.shields.io/codacy/grade/4e2956935f2c4fc08166fe431e7211a3/main.svg?style=flat-square)](https://app.codacy.com/gh/hectororm/collection)
 [![Total Downloads](https://img.shields.io/packagist/dt/hectororm/collection.svg?style=flat-square)](https://packagist.org/packages/hectororm/collection)
 
