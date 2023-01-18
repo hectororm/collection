@@ -98,6 +98,15 @@ Collection::new(['foo', 'bar'])->isEmpty(); // Returns FALSE
 Collection::new()->isEmpty(); // Returns TRUE
 ```
 
+#### `CollectionInterface::isList(): bool`
+
+Know if collection is list.
+
+```php
+Collection::new(['foo', 'bar'])->isList(); // Returns TRUE
+Collection::new(['foo', 'b' => 'bar'])->isList(); // Returns FALSE
+```
+
 #### `CollectionInterface::collect(): self`
 
 Collect all data from current collection into another one.

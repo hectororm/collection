@@ -9,6 +9,7 @@ use [Keep a Changelog] (http://keepachangelog.com/).
 ### Added
 
 - New method `CollectionInterface::reverse(): static`
+- New method `CollectionInterface::isList(): bool`
 
 ### Changed
 
