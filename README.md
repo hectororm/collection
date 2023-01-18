@@ -109,7 +109,7 @@ $collection = Collection::new(['foo', 'bar']);
 $newCollection = $collection->collect();
 ```
 
-#### `CollectionInterface::sort(callable|int|null $callback = null): self`
+#### `CollectionInterface::sort(callable|int|null $callback = null): static`
 
 Sort items of collection.
 
@@ -121,7 +121,7 @@ $collection->getArrayCopy(); // Returns `['bar', 'foo']`
 
 Similar to PHP array sort functions.
 
-#### `CollectionInterface::multiSort(callable ...$callback): self`
+#### `CollectionInterface::multiSort(callable ...$callback): static`
 
 Multi sort items of collection.
 
@@ -150,7 +150,7 @@ $collection->getArrayCopy();
 // ]`
 ```
 
-#### `CollectionInterface::filter(?callable $callback = null): self`
+#### `CollectionInterface::filter(?callable $callback = null): static`
 
 Filter items with callback.
 
@@ -162,7 +162,7 @@ $collection->getArrayCopy(); // Returns `[20, 100]`
 
 Similar to `array_filter()` function.
 
-#### `CollectionInterface::filterInstanceOf(string|object ...$class): self`
+#### `CollectionInterface::filterInstanceOf(string|object ...$class): static`
 
 Filter items with object instance comparison.
 
@@ -174,13 +174,13 @@ $collection->getArrayCopy(); // Returns `[object<stdClass>]`
 
 Similar to `is_a()` function.
 
-#### `CollectionInterface::map(callable $callback): self`
+#### `CollectionInterface::map(callable $callback): static`
 
 Apply callback on items and return result of callback.
 
 Similar to `array_map()` function.
 
-#### `CollectionInterface::each(callable $callback): self`
+#### `CollectionInterface::each(callable $callback): static`
 
 Apply callback on items and return items.
 
@@ -235,7 +235,7 @@ $collection = $collection->last(); // Return `'baz'`
 $collection = $collection->last(fn($value) => str_starts_with('ba', $value)); // Return `'baz'`
 ```
 
-#### `CollectionInterface::slice(int $offset, int|null $length = null): self`
+#### `CollectionInterface::slice(int $offset, int|null $length = null): static`
 
 Extract a slice of the collection.
 
@@ -263,7 +263,7 @@ $collection->contains(2, true); // Returns `false`
 
 Similar to `in_array()` function.
 
-#### `CollectionInterface::chunk(int $length): self`
+#### `CollectionInterface::chunk(int $length): static`
 
 Chunk collection items into collection of fixed length.
 
@@ -275,7 +275,7 @@ $collection->getArrayCopy(); // Returns `[['foo', 'bar'], ['baz']]`
 
 Similar to `array_chunk()` function.
 
-#### `CollectionInterface::keys(): self`
+#### `CollectionInterface::keys(): static`
 
 Get keys of collection items.
 
@@ -286,7 +286,7 @@ $collection->keys()->getArrayCopy(); // Returns `['k1', 1, 'k2']`
 
 Similar to `array_keys()` function.
 
-#### `CollectionInterface::values(): self`
+#### `CollectionInterface::values(): static`
 
 Get values of collection items.
 
@@ -297,7 +297,7 @@ $collection->keys()->getArrayCopy(); // Returns `['foo', 'bar', 'baz']`
 
 Similar to `array_values()` function.
 
-#### `CollectionInterface::unique(): self`
+#### `CollectionInterface::unique(): static`
 
 Get uniques items of collection items.
 
@@ -308,7 +308,7 @@ $collection->unique()->getArrayCopy(); // Returns `['k1' => 'foo', 'bar', 'k2' =
 
 Similar to `array_unique()` function.
 
-#### `CollectionInterface::flip(): self`
+#### `CollectionInterface::flip(): static`
 
 Flip keys and values.
 
@@ -319,7 +319,19 @@ $collection->flip()->getArrayCopy(); // Returns `['foo' => 'k1', 'bar' => 0, 'ba
 
 Similar to `array_flip()` function.
 
-#### `CollectionInterface::column(string|int|Closure|null $column_key, string|int|Closure|null $index_key = null): self`
+#### `CollectionInterface::reverse(bool $preserve_keys = false): static`
+
+Reverse order of items.
+
+```php
+$collection = Collection::new(['k1' => 'foo', 'foo', 'bar', 'k2' => 'baz']);
+$collection->reverse()->getArrayCopy(); // Returns `['k2' => 'baz', 0 => 'bar', 1 => 'foo', 'k1' => 'foo']`
+$collection->reverse(true)->getArrayCopy(); // Returns `['k2' => 'baz', 1 => 'bar', 0 => 'foo', 'k1' => 'foo']`
+```
+
+Similar to `array_reverse()` function.
+
+#### `CollectionInterface::column(string|int|Closure|null $column_key, string|int|Closure|null $index_key = null): static`
 
 Get column value or reindex collection.
 
@@ -335,7 +347,7 @@ $collection = $collection->column('value', 'k1')->getArrayCopy(); // Returns `['
 
 Similar to `array_column()` function.
 
-#### `CollectionInterface::rand(int $length = 1): self`
+#### `CollectionInterface::rand(int $length = 1): static`
 
 Get random values of collection.
 

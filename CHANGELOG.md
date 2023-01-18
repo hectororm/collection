@@ -6,6 +6,10 @@ use [Keep a Changelog] (http://keepachangelog.com/).
 
 ## [1.0.0-beta6] - In progress
 
+### Added
+
+- New method `CollectionInterface::reverse(): static`
+
 ### Changed
 
 - `CollectionInterface` methods now return type `static` instead of `self`
