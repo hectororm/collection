@@ -195,14 +195,15 @@ Apply callback on items and return items.
 
 Similar to `array_walk()` function.
 
-#### `CollectionInterface::search(callable $callback): mixed`
+#### `CollectionInterface::search(callable|mixed $needle): int|string|false`
 
-Search item with callback.
+Search key of item with callback or value.
 
 ```php
-$collection = Collection::new(['foo', 'bar', 'baz']);
-$collection = $collection->filter(fn($value) => str_starts_with('ba', $value));
-$collection->getArrayCopy(); // Returns `['bar', 'baz']`
+$collection = Collection::new(['foo', 'bar', '1', 1, 'quxx']);
+$collection->search(1); // Returns 2
+$collection->search(1, true); // Returns 3
+$collection->search(fn($value) => str_starts_with($value, 'bar')); // Returns 1
 ```
 
 Similar to `array_search()` function.

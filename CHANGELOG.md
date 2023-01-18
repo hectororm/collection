@@ -14,6 +14,7 @@ use [Keep a Changelog] (http://keepachangelog.com/).
 ### Changed
 
 - `CollectionInterface` methods now return type `static` instead of `self`
+- `CollectionInterface::search()` is now used to search key instead of be an alias of `CollectionInterface::first()` with callback
 
 ## [1.0.0-beta5] - 2022-09-05
 
